@@ -78,17 +78,22 @@ namespace OOP_LAB
                     return courses[i];
             return null;
         }
+        public Teacher PricipalLecturer
+        {
+            get { return principalLecturer; }
+            set { this.principalLecturer = value; }
+        }
         public void SetPricipalLecturer(Teacher teacher)
         {
-            this.principalLecturer = teacher;
+            PricipalLecturer = teacher;
         }
         public Teacher GetPrincipalLecturer()
         {
-            return principalLecturer;
-        }
+            return PricipalLecturer;
+        }        
         public override string ToString()
         {
-            string str = $"{name}; Principal lecturer: {principalLecturer}\n";
+            string str = $"{name}; Principal lecturer: {principalLecturer.ToString()}\n";
             foreach (Course course in courses)
             {
                 if (course != null)

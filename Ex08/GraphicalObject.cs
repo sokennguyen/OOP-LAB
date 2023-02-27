@@ -20,5 +20,6 @@ namespace OOP_LAB
             Display();
             Console.WriteLine("\n");
         }
+
     }
 }

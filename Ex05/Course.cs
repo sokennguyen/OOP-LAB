@@ -29,7 +29,7 @@ namespace OOP_LAB
         }
         public bool AddStudent(Student student)
         {
-            if (this.students[Array.IndexOf(students, null)] == null)
+            if (this.students[MAX_STUDENTS-1]==null && this.students[Array.IndexOf(students, null)] == null)
             {
                 this.students[Array.IndexOf(students, null)] = student;
                 return true;
@@ -38,22 +38,20 @@ namespace OOP_LAB
         }
         public string ToString()
         {
-            string output = $"Course {name} {credits} ECTS:\r\nTeacher: {teacher.ToString()},\r\nstudents:\r\n";
-            for (int i = 0; i < (Array.IndexOf(this.students, null)) - 1; i++)
+            string output = $"Course {name} {credits} ECTS:\r\nTeacher: {this.teacher.ToString()},\r\nstudents:\r\n";
+            for (int i = 0; i < (Array.IndexOf(this.students, null)); i++)
             {
                 output += students[i].ToString() + "\n";
             }
             return output;
         }
         public Student GetStudent(string name)
-        {
-            bool found = false;
+        {            
             int index = 0;
-            while (!found || index < Array.IndexOf(this.students, null)-1 && index < MAX_STUDENTS)
+            while ( index <= Array.IndexOf(this.students, null)-1 && index < MAX_STUDENTS)
             {
                 if (students[index].GetName() == name)
-                {
-                    found = true;
+                {                    
                     return students[index];
                 }
                 index++;
@@ -62,7 +60,7 @@ namespace OOP_LAB
         }
         public void RemoveStudent(Student student)
         {
-            student = null;
+            this.students[Array.IndexOf(this.students, student)] = null;
         }
     }
 }
